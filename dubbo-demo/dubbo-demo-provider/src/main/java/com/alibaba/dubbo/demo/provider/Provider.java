@@ -8,12 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Provider {
 
 	public static void main(String[] args) throws Exception {
-		@SuppressWarnings("resource")
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				new String[] { "META-INF/spring/dubbo-demo-provider.xml" });
+		String[] configs = { "META-INF/spring/dubbo-demo-provider.xml" };
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(configs);
 		context.start();
 
 		System.in.read(); // 按任意键退出
+		context.close();
 	}
 
 }
